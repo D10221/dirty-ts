@@ -7,7 +7,7 @@
   "scripts": {
     "test:dirty": "mocha test/test-*.js -R list",
     "test:dirtyx": "mocha built/dirtyx_test.js",
-    "test": "npm run test:dirtyx",
+    "test": "mocha built",
     "build": "tsc -p ."
   },
   "author": "D10221",
