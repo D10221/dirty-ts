@@ -1,0 +1,22 @@
+{
+  "name": "dirty-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "built/Dirty.js",
+  "typings": "built/Dirty.d.ts",
+  "scripts": {
+    "test": "mocha test/test-*.js -R list",
+    "build": "tsc -p ."
+  },
+  "author": "D10221",
+  "license": "ISC",
+  "dependencies": {
+    "dirty": "^1.0.0",
+    "rx": "^4.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "rimraf": "^2.5.2"
+  }
+}
