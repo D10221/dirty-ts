@@ -1,3 +1,4 @@
+import * as Rx from 'rx';
 import {Chain} from './chain';
 import {Dirty} from './Dirty';
 
@@ -73,7 +74,7 @@ export class Dirtyx<TKey, TValue> extends Dirty {
     }
 
     first(predicate: (x: TValue) => boolean): TValue {
-        
+
         for (let key of this._keys) {
 
             let value = this._docs[key];
@@ -85,16 +86,30 @@ export class Dirtyx<TKey, TValue> extends Dirty {
         return null;
     }
 
-    *values() {    
+    *values() {
         for (let key of this._keys) {
-            yield this._docs[key];            
-        }        
+            yield this._docs[key];
+        }
     }
 
-    get query() :Chain<TValue> {
+    get query(): Chain<TValue> {
         return new Chain(this.values());
     }
-    
-    [Symbol.iterator]() { return  this.values() ; }
 
+    [Symbol.iterator]() { return this.values(); }
+
+    getEvent(e:Event) : Rx.Observable<any> {
+        let self = this;
+        return Rx.Observable.fromEventPattern(
+            function add(h) {
+                self.addListener(e, h);
+            },
+            function remove(h) {
+                self.removeListener(e, h);
+            }
+        );
+    }
 }
+
+export type Event = 'error' | 'load' |'drain' | 'read_close' | 'write_close';
+

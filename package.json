@@ -1,12 +1,12 @@
 {
-  "name": "dirty-ts",
-  "version": "1.0.0",
-  "description": "typescript copy of https://github.com/felixge/node-dirty",
-  "main": "built/Dirty.js",
-  "typings": "built/Dirty.d.ts",
+  "name": "dirtyx",
+  "version": "0.0.1",
+  "description": "like dirty, ... but with an 'x' \n from: https://github.com/felixge/node-dirty",
+  "main": "built/Dirtyx.js",
+  "typings": "built/Dirtyx.d.ts",
   "scripts": {
-    "test": "mocha test/test-*.js -R list",
-    "test:usage": "mocha built/usage/index.js",
+    "test:dirty": "mocha test/test-*.js -R list",
+    "test:dirtyx": "mocha built/dirtyx_test.js",
     "build": "tsc -p ."
   },
   "author": "D10221",

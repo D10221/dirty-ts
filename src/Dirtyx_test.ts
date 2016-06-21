@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import {assert} from 'chai';
 import * as path from 'path';
-import * as dirtyx from '../Dirtyx';
+import * as dirtyx from './Dirtyx';
 //import * as Rx from 'rx';
 
 import Dirtyx = dirtyx.Dirtyx;
@@ -49,9 +49,28 @@ describe('Dirtyx', () => {
         let found = db.query.where(x=> x.eyes == "green").first();
         assert.equal(found.name ,  'bob');
         console.log(found);
+
+        let closed = false;
+        db.getEvent('write_close')
+            .take(1)
+            .subscribe(e=>{
+                closed = true;
+            })
+        db.close();    
         
+        await wait(1000);
+
+        assert.isTrue(closed);
+                  
 })
 })
 
+function wait(miliseconds:number ) : Promise<any> {
+    return new Promise((resolve, reject)=>{
+        setTimeout(function() {
+            resolve(true);
+        }, miliseconds);
+    });
+}
 
 
