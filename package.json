@@ -1,7 +1,7 @@
 {
   "name": "dirty-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "typescript copy of https://github.com/felixge/node-dirty",
   "main": "built/Dirty.js",
   "typings": "built/Dirty.d.ts",
   "scripts": {
