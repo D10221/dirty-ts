@@ -19,4 +19,8 @@
     "mocha": "^2.5.3",
     "rimraf": "^2.5.2"
   }
+  ,"repository": {
+    "url": "https://github.com/D10221/dirty-ts.git",
+    "type": "git"
+  }
 }
