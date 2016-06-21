@@ -7,20 +7,21 @@
   "scripts": {
     "test:dirty": "mocha test/test-*.js -R list",
     "test:dirtyx": "mocha built/dirtyx_test.js",
+    "test": "npm run test:dirtyx",
     "build": "tsc -p ."
   },
   "author": "D10221",
   "license": "ISC",
   "dependencies": {
-    "dirty": "^1.0.0",
+    "chain": "git+https://github.com/D10221/chain.git",
     "rx": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "rimraf": "^2.5.2"
-  }
-  ,"repository": {
+  },
+  "repository": {
     "url": "https://github.com/D10221/dirty-ts.git",
     "type": "git"
   }

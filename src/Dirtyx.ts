@@ -1,5 +1,5 @@
 import * as Rx from 'rx';
-import {Chain} from './chain';
+import {Chain} from 'chain';
 import {Dirty} from './Dirty';
 
 export class Dirtyx<TKey, TValue> extends Dirty {
@@ -12,6 +12,7 @@ export class Dirtyx<TKey, TValue> extends Dirty {
         return new Promise((resolve, reject) => {
 
             try {
+                
                 let d = new Dirtyx<K, V>(path, key);
 
                 d.once('error', ex => reject(ex));
