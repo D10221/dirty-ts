@@ -1,19 +1,20 @@
 import * as util from 'util';
 import * as fs from 'fs';
 import * as events from 'events';
+
 import EventEmitter = events.EventEmitter;
 
 //if (global.GENTLY) require = GENTLY.hijack(require);
 export class Dirty extends EventEmitter {
-
+    
   writeBundle = 1000;
-  _docs = {};
-  _keys = [];
-  _queue = [];
-  _readStream = null;
-  _writeStream = null;
-  _fdRead = null;
-  _fdWrite = null;
+  protected _docs = {};
+  protected _keys = [];
+  private _queue = [];
+  private _readStream = null;
+  private _writeStream = null;
+  private _fdRead = null;
+  private _fdWrite = null;
 
   constructor(private path) {
     
@@ -252,9 +253,9 @@ export class Dirty extends EventEmitter {
   };
 
   /**
-  * Iterate over keys, applying match function
+  * Iterate over keys, applying match function while fn doesn't return false
   */
-  forEach =  (fn) => {
+  forEach =  (fn:(key:any, value:any)=> boolean|void ) => {
 
     for (var i = 0; i < this._keys.length; i++) {
       var key = this._keys[i];

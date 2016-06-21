@@ -6,6 +6,7 @@
   "typings": "built/Dirty.d.ts",
   "scripts": {
     "test": "mocha test/test-*.js -R list",
+    "test:usage": "mocha built/usage/index.js",
     "build": "tsc -p ."
   },
   "author": "D10221",
